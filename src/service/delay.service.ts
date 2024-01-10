@@ -12,7 +12,7 @@ export class DelayService {
 
   async delayRequest(query: number): Promise<string> {
     const request: GetDelayStringRequest = { seconds: query };
-    
+
     console.log(request);
     return this.dummyApi.getDelayString(request);
   }
