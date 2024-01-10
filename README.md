@@ -1,19 +1,37 @@
 ## Example: Nest.js for BFF
 
-| 기본 파일                  | 용도                                     |
-|------------------------|----------------------------------------|
-| app.controller.spec.ts | 컨트롤러 단위 테스트용                           |
-| app.controller.ts      | 기본 컨트롤러 @Controller                    |
+| 기본 파일              | 용도                                            |
+| ---------------------- | ----------------------------------------------- |
+| app.controller.spec.ts | 컨트롤러 단위 테스트용                          |
+| app.controller.ts      | 기본 컨트롤러 @Controller                       |
 | app.module.ts          | root module, 스프링으로 치면 @Configuraion인가? |
-| app.service.ts         | 기본 서비스 @Component                      |
-| main.js                | Nest.js 애플리케이션 인스턴스를 생성하는 메인           |
+| app.service.ts         | 기본 서비스 @Component                          |
+| main.js                | Nest.js 애플리케이션 인스턴스를 생성하는 메인   |
 
 ### 적용해볼 것
+
 - [ ] 환경변수를 주입받아 코드에서 사용하기
-- [ ] OpenApi Generator로 컨트롤러 코드 생성하기
-- [ ] 생성된 컨트롤러로 요청을 처리하기
-- [ ] OpenApi Generator로 서버 Client 생성하기
-- [ ] 서버 Client를 비동기로 사용하기 + Header relay
+- [x] 컨트롤러로 요청을 처리하기
+- [x] OpenApi Generator로 서버 Client 생성하기
+- [x] 서버 Client를 비동기로 사용하기 
+- [ ] Header relay
+- [ ] inbound, outbound 로깅
+
+### OpenApi-Generator
+```shell
+$ npm install @openapitools/openapi-generator-cli
+
+$ openapi-generator generate -i ./apispec/delay-api.yaml -g typescript-fetch -o './src/client'
+```
+
+### How to start application
+```shell
+$ nest start
+$ npm run start
+
+# for debug
+$ nest start --debug --watch
+```
 
 ---
 
@@ -22,7 +40,6 @@
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>

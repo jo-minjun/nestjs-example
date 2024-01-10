@@ -1,0 +1,38 @@
+openapi: 3.0.1
+
+info:
+  title: dummy
+  version: 0.0.1
+
+servers:
+  - url: https://httpbin.org
+    description: local
+
+tags:
+  - name: Dummy
+
+paths:
+  /delay/{seconds}:
+    get:
+      operationId: getDelayString
+      tags:
+        - Dummy
+      parameters:
+        - in: path
+          name: seconds
+          required: true
+          schema:
+            type: integer
+            format: int32
+            description: delay
+            example: 3
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: string
+                example: This response has been delayed
+
+security: []
