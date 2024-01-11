@@ -21,7 +21,7 @@
 ```shell
 $ npm install @openapitools/openapi-generator-cli
 
-$ openapi-generator generate -i ./apispec/delay-api.yaml -g typescript-fetch -o './src/client'
+$ openapi-generator-cli generate -i ./apispec/delay-api.yaml -g typescript-fetch -o './src/client'
 ```
 
 ### How to start application
