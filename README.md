@@ -10,14 +10,15 @@
 
 ### 적용해볼 것
 
-- [ ] 환경변수를 주입받아 코드에서 사용하기
+- [x] 환경변수를 주입받아 코드에서 사용하기
 - [x] 컨트롤러로 요청을 처리하기
 - [x] OpenApi Generator로 서버 Client 생성하기
-- [x] 서버 Client를 비동기로 사용하기 
+- [x] 서버 Client를 비동기로 사용하기
 - [ ] Header relay
 - [ ] inbound, outbound 로깅
 
 ### OpenApi-Generator
+
 ```shell
 $ npm install @openapitools/openapi-generator-cli
 
@@ -25,12 +26,18 @@ $ openapi-generator-cli generate -i ./apispec/delay-api.yaml -g typescript-fetch
 ```
 
 ### How to start application
+
 ```shell
+# $ brew install node
+# $ nest new ${project-name}
+
 $ nest start
 $ npm run start
 
 # for debug
 $ nest start --debug --watch
+
+$ time curl -XGET http://localhost:3000/api/delay\?query\=5 | jq
 ```
 
 ---

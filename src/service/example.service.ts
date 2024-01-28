@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { DummyApi, GetDelayStringRequest } from '../client';
-import { stringify } from 'querystring';
 
 @Injectable()
-export class DelayService {
+export class ExampleService {
   private dummyApi: DummyApi;
 
   constructor() {
@@ -13,7 +12,6 @@ export class DelayService {
   async delayRequest(query: number): Promise<string> {
     const request: GetDelayStringRequest = { seconds: query };
 
-    console.log(request);
     return this.dummyApi.getDelayString(request);
   }
 }
