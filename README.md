@@ -22,7 +22,7 @@
 ```shell
 $ npm install @openapitools/openapi-generator-cli
 
-$ openapi-generator-cli generate -i ./apispec/delay-api.yaml -g typescript-fetch -o './src/client'
+$ openapi-generator-cli generate -i ./apispec/delay-api.yaml -g typescript-axios -o './src/client'
 ```
 
 ### How to start application
@@ -30,6 +30,8 @@ $ openapi-generator-cli generate -i ./apispec/delay-api.yaml -g typescript-fetch
 ```shell
 # $ brew install node
 # $ nest new ${project-name}
+# $ npm i @nestjs/axios
+# $ npm i @nestjs/config
 
 $ nest start
 $ npm run start

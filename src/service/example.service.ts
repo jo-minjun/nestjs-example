@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DummyApi, GetDelayStringRequest } from '../client';
+import { DummyApi } from '../client';
 
 @Injectable()
 export class ExampleService {
@@ -10,8 +10,11 @@ export class ExampleService {
   }
 
   async delayRequest(query: number): Promise<string> {
-    const request: GetDelayStringRequest = { seconds: query };
+    const result = await this.dummyApi.getDelayString(query);
+    if (!result || !result.status.toString().startsWith('2')) {
+      throw new Error('요청에 실패했습니다');
+    }
 
-    return this.dummyApi.getDelayString(request);
+    return result.data;
   }
 }
