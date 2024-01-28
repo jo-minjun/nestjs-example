@@ -14,8 +14,7 @@
 - [x] 컨트롤러로 요청을 처리하기
 - [x] OpenApi Generator로 서버 Client 생성하기
 - [x] 서버 Client를 비동기로 사용하기
-- [ ] Header relay
-- [ ] inbound, outbound 로깅
+- [x] inbound, outbound 로깅
 
 ### OpenApi-Generator
 

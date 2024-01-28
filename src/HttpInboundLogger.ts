@@ -7,8 +7,7 @@ export class HttpInboundLogger implements NestMiddleware {
 
   use(request: Request, response: Response, next: NextFunction) {
     const {method, originalUrl, body} = request;
-    this.logger.log(`Request\n${method} ${originalUrl}\nHeaders: '${JSON.stringify(request.headers)}\nBody: ${JSON.stringify(body)}`
-    );
+    this.logger.log(`Request\n${method} ${originalUrl}\nHeaders: '${JSON.stringify(request.headers)}\nBody: ${JSON.stringify(body)}`);
 
     const {write, end} = response;
     const chunks = [];
@@ -26,8 +25,7 @@ export class HttpInboundLogger implements NestMiddleware {
       const {statusCode} = response;
       const responseBody = Buffer.concat(chunks).toString('utf-8');
 
-      this.logger.log(`Response\nStatus: ${statusCode}\nBody: ${JSON.stringify(JSON.parse(responseBody), null, 2)}`
-      )
+      this.logger.log(`Response\nStatus: ${statusCode}\nBody: ${JSON.stringify(JSON.parse(responseBody), null, 2)}`);
     });
 
     next();
